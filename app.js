@@ -5,7 +5,20 @@
 //      [5, 5, 8, 8, 8, 4, 4]，`8` 出現了 3  次
 
 function findOddElm(numbers) {
-    // 實作寫在這裡
+    let group = {}
+    numbers.forEach((number) => {
+        if (!group[number]) {
+            group[number] = 1;
+        } else {
+            group[number]++;
+        }
+    });
+
+    for (const [key, value] of Object.entries(group)){
+        if (value % 2 == 1) {
+            return key;
+        }
+    }
 }
 
 console.log(findOddElm([1, 1, 2])) // 印出 2
